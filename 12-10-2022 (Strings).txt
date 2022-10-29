@@ -1,0 +1,380 @@
+strings:
+
+sequence of characters enclosed in double quotes.
+
+"anudip"
+
+There are 2 classes available for strings.
+1. string class - immutable(we can't modify)- we can't modify the value once created. (system namespace)
+it will create a new memory location for the updated data.
+
+2. stringbuilder class. - mutable (modifiable) (system.text namespace)
+
+string st="anudip";
+anudip
+
+st="anudiporg";
+anudiporg
+
+st=anudip
+
+anudiporg
+
+1. compareTo() - will return integer (if strings are equal 1 otherwise 0)
+
+2. Equals () - will return boolean(equal - true else false)
+
+contains - To know whether some character is present in string or not
+
+
+BeginsWith()- to check whether the string is starting with that character
+
+EndsWith()- to check whether the string ends with that character
+
+
+Trim() - to remove all the leading and trailing spaces.
+
+st= "    dfjlsdjf   " 
+
+
+   static void Main(string[] args)
+        {
+
+            string st = "anudip";
+            int res;
+          //  Boolean res1;
+            string st1 = "anudip";
+            Console.WriteLine("value of st" + st);
+
+            st = "anudiporg";
+            Console.WriteLine("value of st" + st);
+
+            Console.WriteLine("converted to uppercase" + st.ToUpper());
+            Console.WriteLine("converted to Lowercase" + st1.ToLower());
+            Console.WriteLine("Length of the string" + st.Length);
+
+            res = st.CompareTo(st1);
+            Console.WriteLine("result value" + res);
+
+         //   res1 = st.Equals(st1);
+          //  Console.WriteLine("result value" + res1);
+
+           if(st.Contains('n'))
+            {
+                Console.WriteLine("Character is present");
+
+            }
+           else
+            {
+                Console.WriteLine("Character not present");
+
+            }
+        
+        }
+
+
+
+//string builder.
+---------------
+ static void Main(string[] args)
+        {
+
+            string sto;
+            StringBuilder st = new StringBuilder("anudip");
+            Console.WriteLine("After Appending " + st.Append("org"));
+            Console.WriteLine("Inserting text at the index 2 " + st.Insert(2, "welfare"));
+            Console.WriteLine("Removing text from index 2" + st.Remove(2, 3));
+            sto = st.ToString();
+            Console.WriteLine("After converting string builder object to string object " + sto);
+
+        }
+
+
+
+
+copy constructor:To copy the values of one object to another object of same class.
+
+
+obj1 - 1000 ( whenever object is created memory is allocated for instance variables
+8 bytes
+a=4
+b= 7
+
+
+
+d=1000
+obj2(8 bytes)
+a = 4
+b
+
+ static void Main(string[] args)
+        {
+            Demo obj1 = new Demo(4, 7);//parameterized constructor
+            obj1.show();
+                        Demo obj2 = new Demo(obj1);//copy constructor
+            obj2.show();
+
+                   }
+
+
+    class Demo
+    {
+        int a, b;
+        public Demo(int a1,int b1)//parameterized constructor.
+        {
+            a = a1;
+            b = b1;
+
+        }
+
+        public Demo(Demo d)//copy constructor
+        {
+            a = d.a;//obj1.a is getting assinged to obj2.a 
+            b = d.b;//obj1.b is getting assigned to obj2.b
+
+
+        }
+        public void show()
+        {
+            Console.WriteLine("value of a" + a);
+            Console.WriteLine("value of b" + b);
+
+
+        }
+           
+      
+    }
+}
+
+what is operator overloading:
+
+-  redefining the meaning of operators
+giving additional functionality for existing operators.
+eg:
+
+unary- needs one operand
+
+binary - two operands.
+
+syntax for defining operator overloading method in c# program.
+
+public static void operator + (argu)
+{
+
+}
+
+
+
+
+obj1
+a - 4
+b  - 7
+
+
+4 7
+
+
+obj2
+a - 3
+b - 9
+
+3
+9
+
+
+tempobj
+a - 7
+b - 16
+
+//binary operator overloading
+
+  static void Main(string[] args)
+        {
+            Demo obj1 = new Demo(4, 7);//parameterized constructor
+            obj1.show();
+            Demo obj2 = new Demo(3, 9);
+            obj2.show();
+
+            Demo obj3 = obj1 + obj2;//activates the operator method
+            obj3.show();
+
+
+
+                   }
+
+
+ class Demo
+    {
+        int a, b;
+        public Demo(int a1,int b1)//parameterized constructor.
+        {
+            a = a1;
+            b = b1;
+
+        }
+
+      public static Demo operator + (Demo dobj1,Demo dobj2)
+     {
+            Demo tempobj = new Demo(0,0);
+            tempobj.a = dobj1.a + dobj2.a;
+            tempobj.b = dobj1.b + dobj2.b;
+
+            return tempobj;
+
+
+        }
+        public void show()
+        {
+            Console.WriteLine("value of a" + a);
+            Console.WriteLine("value of b" + b);
+
+
+        }
+           
+      
+    }
+
+//unary operator overloading 
+
+internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Demo obj1 = new Demo(4, 7);//parameterized constructor
+            obj1.show();
+           
+
+            Demo obj2 = ++obj1;//activates the operator method
+            obj2.show();
+
+
+
+                   }
+    }
+
+
+
+  class Demo
+    {
+        int a, b;
+        public Demo(int a1,int b1)//parameterized constructor.
+        {
+            a = a1;
+            b = b1;
+
+        }
+
+      public static Demo operator ++ (Demo dobj1)
+     {
+            Demo tempobj = new Demo(0,0);
+            tempobj.a = ++dobj1.a;
+            tempobj.b = ++dobj1.b;
+
+            return tempobj;
+
+
+        }
+        public void show()
+        {
+            Console.WriteLine("value of a" + a);
+            Console.WriteLine("value of b" + b);
+
+
+        }
+           
+      
+    }
+
+
+
+out and ref parameters:
+----------------------
+helps us to pass arguments by reference.
+
+
+  static void Main(string[] args)
+        {
+
+            int a = 10, b = 20;//Variables must be initialised before passing .
+            Console.WriteLine("Before Updating value of a" + a);
+            Console.WriteLine("Before Updating  value ofb" + b);
+            Demo obj = new Demo();
+            obj.Update(ref a, ref b);
+            Console.WriteLine("Updated value of a" + a);
+            Console.WriteLine("Updated value ofb" + b);
+
+                   }
+    }
+
+    class Demo
+    {
+
+        public void Update(ref int a,ref int b)
+        {
+            a = a + 5;
+            b = b + 5;
+
+
+        }
+
+    }
+
+
+ static void Main(string[] args)
+        {
+
+            int a =2 , b =3;//Variables need not be initialised before passing .//suppose if you are
+//passing values from main() update method that value will be automatically discarded.
+           
+            Demo obj = new Demo();
+            obj.Update(out a, out b);
+            Console.WriteLine("Updated value of a" + a);
+            Console.WriteLine("Updated value ofb" + b);
+
+                   }
+    }
+
+    class Demo
+    {
+
+        public void Update(out int a,out int b)
+        {
+            a =   5;
+            b =   15;
+
+
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

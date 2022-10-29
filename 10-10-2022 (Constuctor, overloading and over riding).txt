@@ -1,0 +1,435 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DemoProject
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            student obj = new student();
+            obj.assign();
+            obj.show();
+        }
+    }
+
+    class student
+    {
+        string name;
+        int rollno;
+        string dept;
+        public void  assign()
+        {
+
+            name = "John";
+            rollno = 100;
+            dept = "cs";
+      }
+        public void show()
+        {
+            Console.WriteLine("Name of the student" +"\t"+ name);
+            Console.WriteLine("Rollno of the student" +"\t"+ rollno);
+            Console.WriteLine("department of the student" +"\t"+ dept);
+
+        }
+
+
+
+
+
+    }
+
+
+ // Constructor : it is a special method to assign values for instance variables.
+    //when we create an object constructor is automatically called by the program.
+    //public modifier, it will never return any value. don't use void 
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            student obj = new student();
+          
+            obj.show();
+        }
+    }
+
+    class student
+    {
+        string name;
+        int rollno;
+        string dept;
+       public student()
+        {
+
+            name = "Johnson";
+            rollno = 100;
+            dept = "IT";
+      }
+        public void show()
+        {
+            Console.WriteLine("Name of the student" +"\t"+ name);
+            Console.WriteLine("Rollno of the student" +"\t"+ rollno);
+            Console.WriteLine("department of the student" +"\t"+ dept);
+
+        }
+
+
+
+
+
+    }
+
+
+
+
+
+
+}
+
+
+
+// Constructor : it is a special method to assign values for instance variables.
+    //when we create an object constructor is automatically called by the program.
+    //public modifier, it will never return any value. don't use void 
+
+
+    //destructor is used to release the memory occupied by the object.
+    // it is called after the execution of main()
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            student obj = new student();
+          
+            obj.show();
+        }
+    }
+
+    class student
+    {
+        string name;
+        int rollno;
+        string dept;
+       public student()
+        {
+
+            name = "Johnson";
+            rollno = 100;
+            dept = "IT";
+      }
+        public void show()
+        {
+            Console.WriteLine("Name of the student" +"\t"+ name);
+            Console.WriteLine("Rollno of the student" +"\t"+ rollno);
+            Console.WriteLine("department of the student" +"\t"+ dept);
+
+        }
+
+        ~student()
+        {
+
+            Console.WriteLine("Memory released.");
+        }
+
+
+
+    }
+
+
+
+
+
+
+}
+
+
+ //method overloading. multiple methods with same name but with different signature
+   //signature represents datatype and no . of parameters.
+
+    //use the word parameter for arguments which is present inside the method definition
+    //use the word argument - for method call
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            shape obj = new shape();
+            obj.show("christy");
+            obj.show(34);
+        }
+    }
+
+    class shape
+    {
+
+        string name;
+        int id;
+        public void show(string n)
+        {
+            name = n;
+            Console.WriteLine("Hai" + name);
+
+        }
+
+        public void show(int id1)
+        {
+            id = id1;
+            Console.WriteLine("id value" + id);
+
+
+        }
+       
+
+
+    }
+
+ internal class Program
+    {
+        static void Main(string[] args)
+        {
+            empsalary obj = new empsalary();
+            obj.assignp();
+            obj.assignc();
+            obj.showp();
+            obj.showc();
+        }
+    }
+
+  class employee
+    {
+        string empname;
+        int empcode;
+        string dept;
+
+        public void assignp()
+        {
+            empname = "christy";
+            empcode = 34;
+            dept = "training";
+
+
+        }
+
+        public void showp()
+        {
+            Console.WriteLine(empname + "\t" + empcode + "\t" + dept);
+
+        }
+
+
+
+    }
+
+    class empsalary : employee
+    {
+        int salary;
+        public void assignc()
+        {
+
+            salary = 10000;
+        }
+        public void showc()
+        {
+            Console.WriteLine(salary);
+
+
+        }
+
+
+
+
+
+
+}
+
+
+
+ Mehtod overriding. - if derived class use the method of its base class with same signature as that of parent class method
+    // base keyword - toaccess the parent class method.
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            empsalary obj = new empsalary();
+            obj.assign();
+            obj.show();
+         
+        }
+    }
+
+  class employee
+    {
+        string empname;
+        int empcode;
+        string dept;
+
+        virtual public void assign()
+        {
+            empname = "christy";
+            empcode = 34;
+            dept = "training";
+
+
+        }
+
+        virtual public void show()
+        {
+            Console.WriteLine(empname + "\t" + empcode + "\t" + dept);
+
+        }
+
+
+
+    }
+
+    class empsalary : employee
+    {
+        int salary;
+       override public void assign()
+        {
+            base.assign();
+            salary = 10000;
+        }
+        override public void show()
+        {
+            base.show();
+            Console.WriteLine(salary);
+
+
+        }
+
+
+internal class Program
+    {
+        static void Main(string[] args)
+        {
+            empsalary obj = new empsalary();
+
+           
+            obj.assign();
+            obj.showp();
+            obj.showc();
+         
+        }
+    }
+
+  class employee
+    {
+        protected string empname;
+        protected int empcode;
+        protected string dept;
+
+       
+
+       public void showp()
+        {
+            Console.WriteLine(empname + "\t" + empcode + "\t" + dept);
+
+        }
+
+
+
+    }
+
+    class empsalary : employee
+    {
+        int salary;
+       public void assign()
+        {
+            empname = "christy";
+            empcode = 34;
+            dept = "training";
+            salary = 10000;
+        }
+        public void showc()
+        {
+           
+            Console.WriteLine(salary);
+
+
+        }
+
+
+
+    }
+
+
+
+
+c and c++ - 
+
+scanf(), printf()
+
+cin>> - cout<<  -in header files  stdio.h, 
+
+namesapce- collection of classes
+
+headerfiles - collection of functions
+
+
+types
+1. compile time  
+
+method overloading
+
+operator overloading
+
+2. run time
+
+
+method overriding
+
+
+
+
+internal class Program
+    {
+        static void Main(string[] args)
+        {
+            shape obj = new shape();
+            obj.area(5);
+            obj.area(3, 6);
+        }
+    }
+
+    class shape
+    {
+
+        int s, len, bre;
+        public void area(int s1)
+        {
+            s = s1;
+            Console.WriteLine("Area of square" + (s * s));
+
+
+        }
+
+        public void area(int len1,int bre1)
+        {
+            Console.WriteLine("Area of Rectanle" + (len * bre));
+
+
+
+        }
+
+    }
+
+
+
+using c# language This program is written(source code ) - it will use  c # compiler - to convert into IL (Intermediate Language code ) (Partially compiled code)
+
+
+partiall compiled code will be converted into machine code using JIT of CLR
+
+
+J# -  j# compiler  - to convert into IL Code
+
+c# - c# compiler  
+
+vb.net - vb.net compiler 
+
+

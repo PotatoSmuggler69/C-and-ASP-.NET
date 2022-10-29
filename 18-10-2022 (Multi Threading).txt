@@ -1,0 +1,408 @@
+1. Create simple threaded application that prints out the name of a fruit at
+timed intervals.
+
+2. Write a c# program that creates three threads. First thread displays “Good Morning”  every one second, the second thread displays “Hello” every two seconds and the third  thread displays “Welcome”every three seconds  
+
+
+3. Write a c# program that implements a multi-thread application that has three threads. First thread generates random integer every 1 second and if the value is even, second thread computes the square of the number and prints. If the value is odd, the third thread will print the value of cube of the number.
+
+ ---------------------------------------------------
+
+
+ 
+internal class Program
+    {
+      
+        public static void show1()
+        {
+           
+            while (true)
+            {
+                Thread.Sleep(1000);
+                Console.WriteLine("Good Morning");
+
+               Thread.Sleep(2000);
+                Thread t2 = new Thread(Program.show2);
+                t2.Start();
+            }
+        }
+
+        public static void show2()
+        {
+
+            Console.WriteLine("Hello");
+            Thread.Sleep(5000);
+
+            Thread t3 = new Thread(Program.show3);
+            t3.Start();
+
+                    }
+
+
+        public static void show3()
+        {
+
+            Console.WriteLine("Welcome");
+           
+        }
+
+        static void Main(string[] args)
+        {
+            Thread t1 = new Thread(Program.show1);
+            t1.Start();
+
+                   }
+    }
+
+
+
+threading :
+
+
+
+we use thread for parallel code execution.
+
+
+To use thread
+
+System.Threading
+
+Thread objectname=new Thread(Name of the method)
+
+Thread.start()
+
+
+
+
+
+  internal class Program
+    {
+        public static void Method1()//Running state
+        {
+            for (int i = 1; i <= 5; i++)
+            {
+                Console.WriteLine(Thread.CurrentThread.Name + "Value of i "+i );
+
+                Thread.Sleep(1000); //non-runnable state //watiting state
+            }
+        }
+
+        public static void Method2()
+        {
+
+            for (int j = 1; j <= 5; j++)
+            {
+                Console.WriteLine(Thread.CurrentThread.Name+"Value of j"+j);
+                Thread.Sleep(1000);
+
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            Thread t1 = new Thread(Program.Method1);// unstarted state.
+            Thread t2 = new Thread(Program.Method2);
+            t1.Name = "Thread1";
+            t2.Name = "Thread2";
+
+            t1.Start();// ready state.
+            t2.Start();
+
+            
+                }
+    }
+
+
+
+ internal class Program
+    {
+       
+        public void show()
+        {
+            Console.WriteLine("Name of Current Thread"+Thread.CurrentThread.Name);
+           // Console.WriteLine("Welcome to DotNet");
+        }
+
+
+        static void Main(string[] args)
+        {
+
+            Program obj = new Program();
+
+            Thread t1 = new Thread(obj.show);
+            t1.Name = "Mythread";
+            t1.Start();
+
+            
+                }
+    }
+
+
+There are 5 types of priorioty 
+1. highest  4
+2. lowest - 0
+3. Normal - 2
+4. above normal - 3
+5. below normal - 1
+
+  internal class Program
+    {
+       
+        public static void Method1()
+        {
+
+            for(int i=1;i<=3;i++)
+
+            Console.WriteLine("Name of Current Thread"+Thread.CurrentThread.Name);
+          
+        }
+        public static void Method2()
+        {
+
+            for (int i = 1; i <= 3; i++)
+                Console.WriteLine("Name of Current Thread" + Thread.CurrentThread.Name);
+
+        }
+
+        public static void Method3()
+        {
+
+            for (int i = 1; i <= 3; i++)
+                Console.WriteLine("Name of Current Thread" + Thread.CurrentThread.Name);
+
+        }
+
+
+
+
+        static void Main(string[] args)
+        {
+
+          
+            Thread t1 = new Thread(Program.Method1);
+            Thread t2 = new Thread(Program.Method2);
+            Thread t3 = new Thread(Program.Method3);
+
+            t1.Name = "FirstThread";
+           
+
+            t2.Name = "Second Thread";
+           
+
+            t3.Name = "Third Thread";
+         
+
+            t1.Priority = ThreadPriority.Lowest;// 0
+            t2.Priority = ThreadPriority.Highest;//4
+            t3.Priority = ThreadPriority.Normal;// 2
+
+            t1.Start();
+            t2.Start();
+            t3.Start();
+
+        }
+    }
+
+Code synchronization : helps in preventing multiple threads executing the same code simultaneously.
+
+it is implemented with the help of lock and monitor.
+
+
+
+Without code synchronization:
+------------------------------
+ internal class Program
+    {
+        static int total = 0;
+        public static void increment()
+        {
+            for (int i = 1; i <= 5; i++)
+            {
+                total++;
+                Console.WriteLine(Thread.CurrentThread.Name + +total);
+                Thread.Sleep(1000);
+
+
+            }
+        }
+        static void Main(string[] args)
+        {
+
+          
+            Thread t1 = new Thread(Program.increment);
+            Thread t2 = new Thread(Program.increment);
+           
+
+            t1.Name = "First";
+           
+
+            t2.Name = "Second";
+           
+
+          
+
+            t1.Start();
+            t2.Start();
+          
+
+        }
+    }
+
+
+with synchronization - 
+
+lock object 
+
+lock - it is a keyword used to set lock for the thread. 
+
+
+
+ internal class Program
+
+            {
+       
+        private static readonly object lockobj = new object();
+        static int total = 0;
+        public static void increment()
+        {
+            lock(lockobj)
+            {
+
+                for (int i = 1; i <= 5; i++)
+                {
+                    total++;
+                    Console.WriteLine(Thread.CurrentThread.Name + +total);
+                    Thread.Sleep(1000);
+                }
+
+            }
+        }
+        static void Main(string[] args)
+        {
+                     
+            Thread t1 = new Thread(Program.increment);
+            Thread t2 = new Thread(Program.increment);
+        t1.Name = "First";
+       t2.Name = "Second";
+        t1.Start();
+            t2.Start();
+          
+
+        }
+    }
+
+
+Monitor.Enter(lockobject)- create lock for the current thread
+
+Monitor.Exit(lockobject) - to release lock of current thread.
+
+
+
+
+ internal class Program
+
+            {
+       
+        private static readonly object lockobj = new object();
+        static int total = 0;
+        public static void increment()
+        {
+            Monitor.Enter(lockobj);
+            {
+                for (int i = 1; i <= 5; i++)
+
+
+                {
+                    total++;
+                    Console.WriteLine(Thread.CurrentThread.Name + +total);
+                    Thread.Sleep(1000);
+
+                }
+            }
+            Monitor.Exit(lockobj);
+                     
+        }
+
+        static void Main(string[] args)
+        {
+                     
+            Thread t1 = new Thread(Program.increment);
+            Thread t2 = new Thread(Program.increment);
+        t1.Name = "First";
+       t2.Name = "Second";
+        t1.Start();
+            t2.Start();
+          
+
+        }
+    }
+
+
+
+Access Modifiers:
+-------------------
+
+
+are used to set accessibility persmission for type and members ( data members(instance variables, methods)
+
+
+1. private -
+ it is accessible only within the class
+
+2. protected -accessibile within the class and its derived class.
+3. internal- within the assembly
+
+4. protected internal - within the assembly and also in derived class of different assembly.
+
+5. public- anywhere ( within the assembly also from different assembly)
+
+
+Example for Public Modifier
+------------------------------
+
+create two project 
+
+namespace ProjectOnee
+{
+    internal class Program
+    {
+
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("value of a" + sample.a);
+        }
+
+    }
+    public class sample
+    {
+        public static int a = 10;
+
+
+    }
+}
+
+
+
+//
+To access public variable from projectone to projecttwo
+1. add reference
+rightclick on reference tab (solution explorer)- addreference - browse (choose soluttion file (.exe file))
+2. include project using (using keyword)
+
+
+
+namespace ProjectTwoo
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("value of public variable" + ProjectOnee.sample.a);
+
+        }
+    }
+
+
+
+}

@@ -1,0 +1,345 @@
+Delegate
+----------
+type -safe Function pointer.(signature should match with the method it is pointing to )
+
+
+A delegate is a class - we are creating object for delegate and it can take parameters and have return type as
+
+normal method.
+
+delegate ->pointer to function 
+
+To create and use delegate 
+1. define the delegate ( declare the delegate ) 
+( should come under the name space )
+
+syntax for defining delegate 
+< modifier > delegate return-type delegate_name(parameters )
+
+2. create object /instance of delegate 
+pass the method reference to the constructor of the  delegate
+
+3. invoke the delegate 
+
+namespace ConsoleApp9
+{
+    public delegate void mydelegate(int x, int y);
+    internal class Program
+    {
+
+        static void Main(string[] args)
+        {
+            mydelegate dobj = new mydelegate(Sample.addnumbers);
+            dobj.Invoke(3, 6);
+
+
+        }
+    }
+
+    class Sample
+    {
+
+        int x, y;
+      
+        public static void addnumbers(int a,int b)
+        {
+            Console.WriteLine("Addition of 2 numbers " + (a + b));
+        }
+
+
+    }
+}
+
+Types of delegates
+1. simple/ single cast
+
+
+a delegate that holds the reference of single method.
+
+2. multicast cast - a delegate holds the references of multiple methods.
+
+Why do we use delegate
+1. for type safty
+2. to execute multiple methods through one execution.
+
+
+ public delegate void mydelegate(int x, int y);
+    internal class Program
+    {
+
+        static void Main(string[] args)
+        {
+            Sample obj = new Sample();
+
+            mydelegate dobj = new mydelegate(obj.addnumbers);
+            dobj += new mydelegate(obj.subnumbers);// + symbol is used to add  more method refereences.
+            
+            // After added multiple methods to delegate object
+
+            dobj.Invoke(3, 6);
+
+            Console.WriteLine("After removing subnumbers reference");
+            dobj -= new mydelegate(obj.subnumbers);
+            
+            //after removed subnumbers method from delegate
+            dobj.Invoke(3, 6);
+
+
+
+        }
+    }
+
+    class Sample
+    {
+
+       
+      
+        public  void addnumbers(int a,int b)
+        {
+            Console.WriteLine("Addition of 2 numbers " + (a + b));
+        }
+        public  void subnumbers(int a,int b)
+        {
+            Console.WriteLine("Subtraction of 2 numbers " + (a - b));
+        }
+
+    }
+
+
+
+
+1. List 
+
+// List is similar to array. (both are used to store the collections of elements of same data type.)
+
+difference is 
+list is dynamic			array is static
+( resizable)			(Fixed)
+
+
+It has more inbuilt methods	 It has limited methods.
+
+
+if size is not known in advance		If size is know.
+
+
+     static void Main(string[] args)
+        {
+           
+            string[] students = new string[3] { "red", "green", "blue" };
+
+            List<string> names = new List<string>() { "christy", "sherin", "ruby", "john" };
+            foreach(var name in names)
+            {
+                Console.WriteLine("List values " + name);
+
+            }
+            for(int i=0;i<names.Count;i++)
+            {
+                Console.WriteLine(names[i]);
+
+            }
+
+            names.Add("Anudip");
+            names.Add("Organization");
+
+            Console.WriteLine("After using Add Method");
+            foreach (var name in names)
+            {
+                Console.WriteLine("List values " + name);
+
+            }
+
+            // We are using AddRange() to add multiple values into the list
+            names.AddRange(students);
+
+            foreach (var name in names)
+            {
+                Console.WriteLine("List values " + name);
+
+            }
+            //IndexOf()- retrieve the index of particular value.
+
+            Console.WriteLine(" The value Anudip is present at the index" + names.IndexOf("Anudip"));
+
+            // Remove Method - To remove Particular value from the list
+
+            names.Remove("Anudip");
+            Console.WriteLine("After Removing");
+
+            foreach (var name in names)
+            {
+                Console.WriteLine("List values " + name);
+
+            }
+
+
+            Console.WriteLine("No of elements in the list" + names.Count);
+
+            names.Reverse();
+            Console.WriteLine("Reversing elements in the list");
+
+            foreach (var name in names)
+            {
+                Console.WriteLine("List values " + name);
+
+            }
+
+        }
+    }
+
+
+
+
+2. Stack-// A data structure that follows the principle of LIFO(Last in first out ) 
+
+The elements added last will be removed first.
+
+Example Program.
+
+
+
+  internal class Program
+    {
+
+        static void Main(string[] args)
+        {
+            Stack<string> student = new Stack<string>();//defining stack 
+            student.Push("christy");// adding element using push method
+            student.Push("ruby");
+            student.Push("david");
+            foreach(var i in student)// print the values of stack
+            {
+                Console.WriteLine(i);
+
+            }
+
+            student.Pop();// to remove the last element 
+            Console.WriteLine("After calling pop method");
+
+            foreach (var i in student)
+            {
+                Console.WriteLine(i);
+
+            }
+            Console.WriteLine("Last element in the stack " + student.Peek());// will return the last element.
+
+            if (student.Contains("sam"))// to check if the element is present or not.
+            {
+                Console.WriteLine("element is present");
+
+
+            }
+            else
+                Console.WriteLine("Element is not present");
+
+
+            Console.WriteLine("No. of elements in the stack " + student.Count);
+
+            student.Clear();// to remove elements. 
+
+            Console.WriteLine("clear method is called .");
+
+            foreach (var i in student)
+            {
+                Console.WriteLine(i);
+
+            }
+
+
+        }
+    }
+
+
+
+
+
+3. Queue : uses FIFO Style. Elements which is added first will be removed first.
+
+
+
+ static void Main(string[] args)
+        {
+            Queue<int> rollno = new Queue<int>();//defining queue
+            rollno.Enqueue(101);// adding element into queue
+            rollno.Enqueue(102);
+            rollno.Enqueue(103);
+            rollno.Enqueue(104);
+            rollno.Enqueue(105);
+            foreach (var i in rollno)//printing the values of queue
+            {
+                Console.WriteLine(i);
+            }
+            rollno.Dequeue();// will remove the first element
+            Console.WriteLine("After removing element");
+            foreach (var i in rollno)
+            {
+                Console.WriteLine(i);
+            }
+
+            Console.WriteLine("No. of elements in the queue" + rollno.Count);//will return total count.
+
+            if(rollno.Contains(102))// check for existence of value
+            {
+
+                Console.WriteLine("value is present");
+
+            }
+            else
+            {
+                Console.WriteLine("value not present");
+            }
+
+            rollno.Clear();// will remove values from the queue
+
+            Console.WriteLine("We have used clear method ");
+
+            foreach (var i in rollno)
+            {
+                Console.WriteLine(i);
+            }
+
+        }
+
+
+4. Dictionery- to store data in key value pair combination.
+
+
+internal class Program
+    {
+
+        static void Main(string[] args)
+        {
+            //  Dictionary<int, string> student = new Dictionary<int, string>();// this is defining dictionary.
+
+            Dictionary<int, string> student = new Dictionary<int, string>()
+            {
+
+                { 101,"christy"},
+                { 102,"ruby"},
+                { 103,"Emerson"},
+                { 104,"Johnson"}
+            };
+
+
+            //Print the values of dictionery
+
+            foreach(KeyValuePair<int, string> entry in student)
+            {
+                Console.WriteLine("Keys "+entry.Key + "Value " + entry.Value);
+
+
+            }
+
+        }
+
+    }
+
+
+
+
+
+
+
+
+

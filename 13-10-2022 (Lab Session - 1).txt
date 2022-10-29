@@ -1,0 +1,214 @@
+1Write c# Program that receives the following information from a  student:
+Student Id:
+Student Name:
+Course Name:
+mark
+The application should also display the information of all the students once the data is
+Entered.
+
+
+2C# Program Create a class student with a data member name, age, marks of English, marks of math, marks of science, total marks, obtained marks and percentage provide member functions CalculateTotalMarks and CalculatePercentage to calculate marks and percentage
+
+3Create a class to print the area of a square and a rectangle. The class has two functions with the same name but different number of parameters. The function for printing the area of rectangle has two parameters which are its length and breadth respectively while the other function for printing the area of square has one parameter which is the side of the square.
+
+4A class has an integer data member 'i' and a function named 'printNum' to print the value of 'i'. Its subclass also has an integer data member 'j' and a function named 'printNum' to print the value of 'j'. Now call the function 'printNum' by this object.
+
+
+ internal class Class3
+    {
+
+        public static void Main(String[] args)
+        {
+            B obj = new B();
+            obj.PrintNum();
+        }
+    }
+
+
+class A
+{
+    int i=2;
+    public virtual void PrintNum()
+    {
+
+        Console.WriteLine("value of i" + i);
+
+    }
+
+}
+
+class B:A
+{
+    int j = 4;
+    public override void PrintNum()
+    {
+
+        base.PrintNum();
+        Console.WriteLine("value of j" + j);
+    }
+
+
+}
+
+
+
+
+
+
+  class student
+    {
+        String name;
+        int age;
+        int engMark;
+        int mathMark;
+        int scienceMark;
+public void readData()
+        {
+            Console.WriteLine("Enter your name");
+            name = Console.ReadLine();
+
+            Console.WriteLine("Enter your age");
+            age = Int32.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter English mark");
+            engMark = Int32.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter Math mark");
+            mathMark = Int32.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter Science mark");
+public void showData()
+        {
+            Console.WriteLine(name+"\t"+age+"\t"+engMark+"\t"+mathMark+"\t"+scienceMark);
+        }
+
+        public void calculateTotalMarks()
+        {
+            total = (engMark+mathMark+scienceMark);
+            Console.WriteLine("Total marks "+total);
+        }
+
+        public void calculatePercentage()
+        {
+            per = (engMark+mathMark+scienceMark)/300;
+            Console.WriteLine("Percentage :"+per);
+        } 
+
+    }
+}
+
+
+5Write a program to create a room class, the attributes of this class is
+roomno, roomtype, roomrent . In this class the member
+functions are setdata and displaydata. 
+
+
+
+
+
+
+6.Write a program create a class ‘simpleobject‘. Using constructor display
+the message. 
+
+internal class Class1
+    {
+
+        public static void Main(String[] args)
+        {
+            SimpleObject obj = new SimpleObject();
+
+        }
+    }
+
+
+    class SimpleObject
+    {
+
+        public SimpleObject()
+        {
+
+            Console.WriteLine("Welcome to Constructor");
+        }
+
+    }
+
+
+
+constructor overloading : If the class contains multiple constructors (default, parameterized ) - constructor
+overloading. 
+
+default constructor - constructor without argument
+
+parameterized - constructor with arguments
+
+create a renter class and do the following
+declare the following member variables
+renter name, days rented, daily rate.
+create a default constructor with no parameter
+create an overloaded constructor with parameters to initialise all member variables
+create method printrenter to print all member variables.
+
+
+
+ internal class Class2
+    {
+        public static void Main(String[] args)
+        {
+
+            Renter obj1 = new Renter();
+            obj1.PrintData();
+
+            Renter obj2 = new Renter("christy",14,100);
+            obj2.PrintData();
+        }
+
+    }
+
+
+ class Renter
+    {
+
+        string RenterName;
+        int DaysRented;
+        int DailyRate;
+        public Renter()//constructor without argument 
+        {
+
+            RenterName = null;
+            DaysRented = 0;
+            DailyRate = 0;
+
+        }
+
+        public Renter(String rn, int dr, int drt)//with argument is called parameterized
+        {
+            RenterName = rn;
+            DaysRented = dr;
+            DailyRate = drt;
+
+
+        }
+
+        public void PrintData()
+        {
+
+            Console.WriteLine("Renter Name" + RenterName);
+            Console.WriteLine("DaysRented" + DaysRented);
+            Console.WriteLine("DailyRate" + DailyRate);
+        }
+
+
+
+obj1 - 4 bytes   		obj2 -11bytes
+name -empty			name	-christy
+daysrented =0 			daysrented -14
+dailyrate =0			dailyrate	-100
+PrintData()			printData()
+
+
+
+7.Develop a program to illustrate a copy constructor so that a string may be duplicated into another variable either by assignment or copying.
+
+8.Develop a program to copy the value of one object to another object using copy constructor
+
+9Write a c# program for overloading operator++ and operator—

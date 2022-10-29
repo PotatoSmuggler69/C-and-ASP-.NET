@@ -1,0 +1,272 @@
+File Handling:.
+---------------
+
+File 
+
+
+Collection of data stored on the disk. it is having name and extension.
+
+
+System.IO - it contains severalclasses for handling file operation.
+
+file becomes stream.
+
+sequence of bytes flowing in  communication path
+
+
+
+program				disk
+
+
+There are 2 main streams
+
+
+1. InputStream- read data from the file
+2. Output Stream - write data into the file.
+
+
+
+1. streamwriter & streamReader ( String data)
+
+           String Mystring = "This string is written using c# Program";
+            StreamWriter sw = new StreamWriter("d:/samplefile.txt");
+            sw.Write(Mystring);
+            sw.Close();
+            Console.WriteLine("Data Written successfully");
+            StreamReader sr = new StreamReader("d:/samplefile.txt");
+            string temp=sr.ReadToEnd();
+            Console.WriteLine(temp);
+	
+2. Binary Writer & Binary Reader ( primitive data type)(int, float, char, string, boolean)
+ internal class Program
+    {
+        static void Main(string[] args)
+        {
+            String var1 = "This is string variable";
+            int var2 = 120;
+            double var3 = 45.66;
+            FileStream fs1 = new FileStream("d:/temp.txt", FileMode.Create);
+            BinaryWriter bw = new BinaryWriter(fs1);
+            bw.Write(var1);
+            bw.Write(var2);
+            bw.Write(var3);
+            fs1.Close();
+            FileStream fs2 = new FileStream("d:/temp.txt", FileMode.Open);
+            BinaryReader br = new BinaryReader(fs2);
+            Console.WriteLine(br.ReadString());
+            Console.WriteLine(br.ReadInt32());
+            Console.WriteLine(br.ReadDouble());
+            fs2.Close();
+
+        }
+    }
+
+
+Collections :
+-------------
+
+it is used to describe any (array,list,stack,queue,dictionary, sortedlist) data structure that can contain multiple items
+
+(array, list)
+
+They are majorly two types.
+
+1. Generic(strongly typed)   - we can store only one type of data 
+
+eg:
+
+
+list<int> - list is defined with int type. if you store string data - you will get compile time error.
+
+dictionary,stack,queue, sortedlist
+
+2.dictionary
+
+2. Non-generic - we can store any type of data.
+1. arraylist 
+2. hashtable
+
+drawbacks of non-generic
+
+1. It will not produce any compiletime error ( when we give other data type except defined one)
+
+2. Performance is low (due to boxing and unboxing )
+
+boxing also known an up casting  (converting derived type into base type ) ( converting value type into object type)(on insertion)
+
+unboxing also known as down casting ( converting base type into derived type ) converting object type into 
+value type ( on retrieval )
+
+generic type
+list
+dictionary
+stack
+queue
+sortedlist
+
+
+non-generic
+arraylist -- It is a non-generic type of collection that is designed to hold different type of data.
+
+It size is dynamic - we can add any number of values. It changes its size dynamically on the basis of no. of input
+
+3. if the count exceeds the capacity, it size is increased by twice the current capacity
+
+ArrayList al=new ArrayList(3);
+al.Add(1);
+al.Add(2);
+al.Add(3);
+it will print - 3
+
+Al.Add(4);
+
+it will print - 6
+
+add(), addrange() - it will values at the end of the arraylist
+
+insert(), insertrange() - it will add values in particular position 
+
+count -  will return the no. of elements in arraylist
+
+capacity - - size of the arraylist
+
+remove() -
+
+removeAt()-
+
+clear()
+
+hashtable  
+to store data in key/value format.
+will not maintain the sequence order - insertion order
+
+it is avilable in system.collectins namespace
+
+when you check for key and the key is not avilable  it will return null value
+
+dictionary
+------------
+to store data inkey/value format
+
+will maintain the order
+
+available in system.collections.generic namespace
+
+when you check for non-existent key - will throw exception.
+
+  internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Hashtable ht = new Hashtable();
+            ht.Add(111,"christy");
+            ht.Add(102, "sherin");
+            ht.Add(108, "david");
+            ht.Add(124, "john");
+
+            Console.WriteLine("This data is coming from Hashtable");
+
+            foreach (DictionaryEntry de in ht)
+            {
+                Console.WriteLine("Key is " + de.Key + "\t" + "Value is " + de.Value);
+
+
+            }
+
+            Dictionary<int, string> d = new Dictionary<int, string>();
+           d.Add(111, "christy");
+            d.Add(102, "sherin");
+            d.Add(108, "david");
+            d.Add(124, "john");
+
+            Console.WriteLine("This data is coming from dictionary");
+
+            foreach(KeyValuePair<int,string> item in d)
+            {
+                Console.WriteLine("Key is " + item.Key + "\t" + "Value is " + item.Value);
+
+
+            }
+
+        }
+    }
+
+
+
+stack
+queue
+sortedlist - store data in key/value format
+
+ internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            SortedList sl = new SortedList();
+            sl.Add(123, "christy");
+            sl.Add(563, "saron");
+            sl.Add(101, "john");
+            sl.Add(122, "ruby");
+            foreach(DictionaryEntry de in sl)
+            {
+                Console.WriteLine(de.Key + "\t" + de.Value);
+            }
+
+
+
+        }
+    }
+
+
+//sorted list
+
+
+  internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            SortedList<int,string> sl = new SortedList<int,string>();
+            sl.Add(123, "christy");
+            sl.Add(563, "saron");
+            sl.Add(101, "john");
+            sl.Add(122, "ruby");
+            foreach(KeyValuePair<int,string> de in sl)
+            {
+                Console.WriteLine(de.Key + "\t" + de.Value);
+            }
+
+            Console.WriteLine("----------------------");
+
+          Dictionary<int, string> dt = new Dictionary<int, string>();
+            dt.Add(123, "christy");
+            dt.Add(563, "saron");
+            dt.Add(101, "john");
+            dt.Add(122, "ruby");
+            foreach (KeyValuePair<int, string> de in dt)
+            {
+                Console.WriteLine(de.Key + "\t" + de.Value);
+            }
+            Console.WriteLine("----------------------");
+
+            Hashtable    ht = new Hashtable();
+            ht.Add(123, "christy");
+            ht.Add(563, "saron");
+            ht.Add(101, "john");
+            ht.Add(122, "ruby");
+            foreach (DictionaryEntry de1 in ht)
+            {
+                Console.WriteLine(de1.Key + "\t" + de1.Value);
+            }
+
+
+
+        }
+    }
+
+
+
+
+
+
+
