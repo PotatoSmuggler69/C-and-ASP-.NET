@@ -1,0 +1,336 @@
+delegate :
+------------
+function pointer
+
+1. define delegate
+2. instantiate the delegate
+3. invoke the delegate.
+
+namespace ConsoleApp20
+{
+
+    public delegate void mydelegate();
+    internal class Program
+    {
+        
+
+        public static void Greet()
+        {
+            Console.WriteLine("Welcome to Delegate");
+
+
+        }
+        static void Main(string[] args)
+        {
+           mydelegate dobj=new mydelegate(Program.Greet);
+            dobj.Invoke();
+
+           
+
+        }
+    }
+}
+
+
+namespace ConsoleApp20
+{
+
+    public delegate void mydelegate();
+    internal class Program
+    {
+               
+        static void Main(string[] args)
+        {
+        mydelegate dobj = delegate
+        {
+            Console.WriteLine("Welcome to Delegate");
+
+        };
+            dobj.Invoke();
+                  }
+    }
+}
+
+namespace ConsoleApp20
+{
+
+    public delegate void mydelegate(string p);
+    internal class Program
+    {
+               
+        static void Main(string[] args)
+        {
+        mydelegate dobj = delegate(string s)
+        {
+            Console.WriteLine(s);
+
+        };
+            dobj.Invoke("Welcome to delegate");
+                  }
+    }
+}
+
+namespace ConsoleApp20
+{
+
+    public delegate void mydelegate(int a,int b);
+    internal class Program
+    {
+               
+        static void Main(string[] args)
+        {
+        mydelegate dobj = delegate(int x,int y)
+        {
+            Console.WriteLine("Addition of 2 numbers"+(x+y));
+
+        };
+            dobj.Invoke(4,8);
+                  }
+    }
+}
+
+
+namespace ConsoleApp20
+{
+
+    public delegate int mydelegate(int a,int b);
+    internal class Program
+    {
+               
+        static void Main(string[] args)
+        {
+            int c;
+        mydelegate dobj = delegate(int x,int y)
+        {
+            return (x + y);
+
+        };
+           c= dobj.Invoke(4,8);
+            Console.WriteLine("Addition of 2 numbers" + c);
+
+                  }
+    }
+}
+
+Lambda expression:
+---------------------
+
+1. another way to create anonymous method
+
+2. upgraded version of anonymous method
+
+3. simplified version of anonymous method
+
+(arguments) => (expression)  or statement block
+lambda operator ( goes to )
+
+
+namespace ConsoleApp20
+{
+
+    public delegate void  mydelegate(string s);
+    internal class Program
+    {
+               
+        static void Main(string[] args)
+        {
+            int c;
+            mydelegate dobj = (string greet) => { Console.WriteLine(greet); }; 
+         
+            dobj.Invoke("welcome to lambda expression");
+          
+                              }
+    }
+}
+
+
+Multiple Parameters using lambda expression
+-------------------------------------------
+
+
+{
+
+    public delegate void  mydelegate(int a,int b);
+    internal class Program
+    {
+               
+        static void Main(string[] args)
+        {
+            int c;
+            mydelegate dobj = (int a, int b) => { Console.WriteLine("Addition of 2 numbers "+(a+b)); }; 
+         
+            dobj.Invoke(5,8);
+          
+                              }
+    }
+}
+
+
+returning value using lambda expression
+----------------------------------------
+namespace ConsoleApp20
+{
+
+    public delegate int  mydelegate(int a,int b);
+    internal class Program
+    {
+               
+        static void Main(string[] args)
+        {
+            int c;
+            mydelegate dobj = (int a, int b) => { return (a + b); };
+         
+            c=dobj.Invoke(5,18);
+            Console.WriteLine("addition of 2 numbers " + c);
+
+          
+                              }
+    }
+}
+
+
+events:
+-------
+
+In an application with GUI when we click on button some action it occurs. That action in c# is known as event.
+Every event is attached with event handler.
+when that event occurs event itself will send signal to delegate. delegate will execute the method(event handler) associated with it.
+
+
+namespace ConsoleApp20
+{
+
+    
+    internal class Program
+    {
+        public delegate void mydelegate();
+        public event mydelegate myevent;
+        int n; 
+        public void readNumbers()
+        {
+            for(int i=1;i<5;i++)
+            {
+                Console.WriteLine("Enter any number");
+                n = Int32.Parse(Console.ReadLine());
+                if (n < 0)
+                    myevent();
+            }
+
+
+        }
+
+        public void checkInput()
+        {
+
+            Console.WriteLine("Negative Number is Entered ");
+
+        }
+
+
+
+        static void Main(string[] args)
+        {
+
+            Program pobj = new Program();
+           
+            pobj.myevent += new mydelegate(pobj.checkInput);
+            pobj.readNumbers();
+
+
+
+        }
+    }
+}
+
+
+namespace ConsoleApp20
+{
+
+    
+    internal class Program
+    {
+        int rem;
+        int i;
+        Random random;
+
+        public void generate()
+        {
+            random = new Random();
+
+            while(true)
+            {
+                i = random.Next(10);
+                rem = i % 2;
+                if(rem==0)
+                {
+                    Thread t1 = new Thread(calculateSquare);
+                    t1.Start();
+
+                }
+                else
+                {
+                    Thread t2 = new Thread(calculateCube);
+                    t2.Start();
+
+
+                }
+                Thread.Sleep(1000);
+
+            }
+        }
+
+        public void calculateSquare()
+        {
+            Console.WriteLine("Square Value of  " + i + "\t" + (i * i));
+
+        }
+
+        public void calculateCube()
+        {
+            Console.WriteLine("Square Value of  " + i + "\t" + (i * i * i));
+
+        }
+
+
+
+
+        static void Main(string[] args)
+        {
+            Program obj = new Program();
+
+            Thread mainthread = new Thread(obj.generate);
+            mainthread.Start();
+
+        }
+    }
+}
+
+internal class Program
+    {
+        public static void Greetings()
+        {
+            while (true)
+            {
+
+                Console.WriteLine("Good Morning");
+                Thread.Sleep(2000);
+                Console.WriteLine("Hello");
+                Thread.Sleep(3000);
+                Console.WriteLine("Welcome");
+                Thread.Sleep(1000);
+
+            }
+
+        }
+       
+
+        static void Main(string[] args)
+        {
+            
+
+            Thread mainthread = new Thread(Program.Greetings);
+            mainthread.Start();
+
+        }
+    }
+

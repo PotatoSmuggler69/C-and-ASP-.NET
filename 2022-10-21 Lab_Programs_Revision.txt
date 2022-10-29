@@ -1,0 +1,48 @@
+Write a program to accept a number from the user and throw an exception if
+the number is not an even number.
+
+Create an ArrayList of integers. Print each member of the list. Experiment with the ArrayLists methods, including the Sort(), Reverse() and Clear() methods.
+
+Create a Queue of integers. Use looping statements to populate this. Experiment with the Queues methods, including the Dequeue(), Enqueue () and Peek() methods.
+
+Create a Stack of integers. Use looping statements to populate this. Experiment with the Stacks methods, including the Pop(), Push () and Peek() methods.
+
+
+What is the base class for all arrays in C#? 
+What is an array?
+What are the 3 different types of arrays that we have in C#?
+How to Sort the Elements in Array
+What property of an array object can be used to get the total number of elements in an array?
+how to copy one array into another array?
+Can you store multiple data types in System.Array?
+How can you sort the elements of the array in descending order? 
+
+ 
+4. Create a small database, which will be used to store data about books. For a certain book, we want to keep the following information:
+
+Title
+Author
+The program must be able to store 10  books, and the user will be allowed to:
+
+Add data for one book
+Display all the entered books (just title and author, in the same line)
+Search for the book(s) with a certain title
+Exit the program
+
+5. Define a class called “Employee” with the following fields: EmployeeId, Employee Name, Address, City, Department, Salary define an array of objects to hold 10 records of Employee. Accept the details of 10 employees from the user using a loop. Display the Employee Name and Salary of all the employees
+
+
+2.
+Define a class to represent a bank account which includes the subsequent members:
+Data members:
+1. Name of the depositor
+2. Account Number
+3. Withdraw amount
+4. Balance amount in the account
+Member Functions:
+1. To assign initial values
+2. To deposit an amount
+3. To withdraw amount after checking the balance
+4. To display name and balance
+
+
