@@ -1,0 +1,5 @@
+D:\Coding\C#\Basic C#\BasicsOfCSharp\BasicsOfCSharp\obj\Debug\net5.0\BasicsOfCSharp.csproj.AssemblyReference.cache
+D:\Coding\C#\Basic C#\BasicsOfCSharp\BasicsOfCSharp\obj\Debug\net5.0\BasicsOfCSharp.GeneratedMSBuildEditorConfig.editorconfig
+D:\Coding\C#\Basic C#\BasicsOfCSharp\BasicsOfCSharp\obj\Debug\net5.0\BasicsOfCSharp.AssemblyInfoInputs.cache
+D:\Coding\C#\Basic C#\BasicsOfCSharp\BasicsOfCSharp\obj\Debug\net5.0\BasicsOfCSharp.AssemblyInfo.cs
+D:\Coding\C#\Basic C#\BasicsOfCSharp\BasicsOfCSharp\obj\Debug\net5.0\BasicsOfCSharp.csproj.CoreCompileInputs.cache

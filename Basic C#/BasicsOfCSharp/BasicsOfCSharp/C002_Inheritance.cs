@@ -8,8 +8,18 @@ namespace BasicsOfCSharp
 {
     internal class C002_Inheritance
     {
-        public static void Main(String[] args) {
-            Console.WriteLine("I am within inheritance folder");
+        static void Main()
+        {
+            int readonlyArgument = 44;
+            fun1(readonlyArgument);
+            Console.WriteLine(readonlyArgument);
+        }
+        static void fun1(in int number)
+        {
+            int sum = number + 100;
+            
+            Console.WriteLine(sum);
         }
     }
+
 }
