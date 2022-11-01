@@ -1,0 +1,387 @@
+IEnumerable and IEnumerator:
+---------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+//Ienumerable and IEnumerator are interfaces. used to implement iteration in .net.
+//By default all collection classes implement these interfaces.
+// ienumerable use foreach . ienumerator can't use// by default it uses ienumerator interally.
+// does not remember the state.  remember the state.
+
+
+namespace ConsoleApp24
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> ages = new List<int> { 56, 23, 67, 89, 98 };
+            foreach(int var in ages)
+            {
+                Console.WriteLine(var);
+
+            }
+
+            IEnumerable<int> iages = (IEnumerable<int>)ages;
+
+            foreach (int ivar in iages)
+            {
+                Console.WriteLine(ivar);
+
+            }
+            Console.WriteLine("Ienmerator");
+
+            IEnumerator<int> iiages = ages.GetEnumerator();
+
+            while(iiages.MoveNext())
+            {
+                if(iiages.Current>50)
+                     Console.WriteLine(iiages.Current);
+            }
+
+
+
+        }
+    }
+
+
+Christy.eng.20@gmail.com
+
+}
+
+Regular expression - Regex
+
+To define pattern.
+
+internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            string pattern = "^[a-zA-z]+$";
+            string name = "christy";
+            bool result = Regex.IsMatch(name, pattern);
+            if(result)
+            {
+                Console.WriteLine("Valid name");
+                    
+            }
+            else
+            {
+                Console.WriteLine("Invalid");
+            }
+        }
+    }
+
+internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            string pattern = "^[0-9]{2}$";
+            string age = "19";
+            bool result = Regex.IsMatch(age, pattern);
+            if(result)
+            {
+                Console.WriteLine("Valid age");
+                    
+            }
+            else
+            {
+                Console.WriteLine("Invalid");
+            }
+        }
+    }
+}
+
+
+internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            string pattern = "^[a-z]{5}\\@[a-z]{5}\\.(com|org|in)$";
+            string email ="saron@gmail.org";
+            bool result = Regex.IsMatch(email, pattern);
+            if(result)
+            {
+                Console.WriteLine("Valid Email");
+                    
+            }
+            else
+            {
+                Console.WriteLine("Invalid");
+            }
+        }
+    }
+
+Christy.eng.20@gmail.com
+
+Sql-server
+-----------
+
+What is data
+
+what is database
+
+What is dbms
+
+Type of dbms
+1. Relational
+2. Non-relational
+
+Types of Data model 
+
+1. Hierarchical
+
+Datas are stored in Tree like structure.
+
+		college
+
+	cs		It				EC
+
+
+Student1  st2		st3	st4	st5		st6
+
+
+2. Network Model
+
+				college
+
+	java		dotnet				aws
+
+
+Student1  st2		st3	st4	st5		st6
+
+Extension of hierarchical. It also arranges data in tree like structure. difference In network model child can have multiple parents.
+
+
+3. Relational Model - E.F Codd
+
+Datas are organized in table format.
+
+Student_table - It is a relation. (entity)
+
+rollno		name	 course		mark (attributes)
+
+101		Arun	Dotnet		87	tuples 
+
+102		Ruby	Java		56
+
+103		Sherin	Dotnet		89
+
+Degree of the relation -  No. of attributes 4
+
+cardinality - No. of tuples 3
+
+Domain - Range of allowed values.
+
+
+SQL - Strucutred Query Language.
+
+Numeric(integer)
+1. tiny int  - byte 0-255			byte
+2. small int   - 32,768 to 32,767 		short
+3. int						int
+4. big int.					long
+
+
+1.decimal (p,s)    decimal(5,2) - 5 bytes
+2, float - suitable for scientific calculation. - 8 bytes
+
+
+char - fixed size 
+
+varchar  - length of assigned value into the particular data type for memory allocation and remaining memory will be released 
+
+
+
+char na="hai";	 2000bytes of memory will be allocated. will not allow unicode
+
+
+varchar na="hai" - allows unicode
+
+Constraint.
+
+To specify conditions for an attribute.
+
+5 types
+1. not null
+
+2. unique
+
+3. primary key
+
+4. foreign key
+
+5. check
+
+
+attribute / field/column
+
+tuple	/record/ row
+
+
+create table student_table(
+rollno int primary key,
+name varchar(20) not null,
+age int  check c1 (age >18),
+course varchar(20)
+);
+
+
+
+Types of constraints.
+
+1. column level
+
+create table student_table(
+rollno int primary key,
+name varchar(20) not null,
+age int  check c1 (age >18),
+course varchar(20)
+);
+
+
+2. table level 
+create table student_table(
+rollno int primary key,
+name varchar(20) not null,
+age int ,
+course varchar(20),
+constraint check c1 (age>18)
+);
+
+
+Type of sql commands.
+
+1. DDL (Data Definition language) - to define , alter,remove database object(table, view, stored procedure)
+
+create, alter, drop ( will remove both record and  structure ),truncate.( will remove only the records left with structure )
+
+create - To define database object
+
+alter - To change the structure of table.
+
+
+2. DML - insert ( to insert record ), update - ( to modify the record in a table), delete - to delete the record., select - to view the records.
+
+3. TCL (Transaction control language)
+1. commit
+2. rollback
+3. savepoint
+
+
+
+
+ create table student_table(
+rollno int primary key,
+name varchar(20) not null,
+age int ,
+course varchar(20),
+constraint check c1 (age>18)
+);
+
+Transaction has started here
+
+insert into student_table values (101,'david',21,'java');
+
+rollback;
+
+stop this transaction  -
+
+start new transaction.
+
+create table sample
+(
+
+
+);
+
+ create table student_table(
+rollno int primary key,
+name varchar(20) not null,
+age int ,
+course varchar(20),
+constraint check c1 (age>18)
+);
+transaction has started
+
+set savepoint insertrec
+
+insert into student_table values (101,'david',21,'java');
+
+insert into student_table values (102,'john',21,'dotnet');
+
+insert into student_table values (103,'ruby',21,'christy');
+
+set savepoint deleterec
+
+delete from student_table where rollno=102;
+
+rollback to insertrec;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Floating
+
+string  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. Network
+2. Relational
+
+
+
+

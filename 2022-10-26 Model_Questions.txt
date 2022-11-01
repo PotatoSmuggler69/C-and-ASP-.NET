@@ -1,0 +1,24 @@
+What is C#? Write its features
+
+Explain different access modifiers in C#?
+How can you describe object-oriented concepts in detail?
+ What is break and continue statements in C#, explain?
+How you can define the exception handling in C#?
+ Explain the concept of Destructor in detail. Explain it with an example.
+Define method overloading with example.
+Explain the concept of boxing and unboxing of the value type and object type in C#.
+What is a different approach to the passing parameter in C#?
+What is a multicast delegate in C#?
+ How you can implement nullable<> types in C#? explain with the syntax of Nullable type.
+What do you mean by value types and reference types in C#?
+What are the constructors?
+What are the different collection classes in C#?
+ Define interface class in C#? Explain with an example.
+Explain the concept of thread in C#.
+Compare Virtual methods and Abstract methods.
+ What are Namespaces in C#?
+What are I/O classes in C#? Define some of the most commonly used ones.
+What do you understand by regular expressions in C#? Write a program that searches a string using regular expressions.
+ Give a detailed explanation of Delegates in C#.
+ Explain different states of a Thread in C#?
+Give a detailed explanation of the differences between ref and out keywords.
