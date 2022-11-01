@@ -1,0 +1,326 @@
+Sql- Server:
+
+1. What is Database.
+Collection of data stored in table format.-It is a structure used to store data.
+
+
+2. What is DBMS?-
+It is a software which is used for creating and managing the database.
+
+
+
+3. Types of Database?
+
+1. Relational - In relational database datas are stored in table format.
+
+
+2. Non-relational database- datas are stored in Key/value formats
+
+eg: XML and JSON 
+
+
+4. Types of Data Model- Way of organizing data.
+
+1. Hierarchical Model- searching time is high.
+In hierarchical model datas are arranged in tree like structure. 
+					Course		Node
+
+		Java			Dotnet			AWS
+
+	st1		st2		st3	st4	
+
+
+
+2. Network Model - Tree Like Structure.
+
+Child Record will have Multiple parents.
+
+3. Relational Model - datas are organized in table format.
+
+student_datas -table relation
+
+regid	name	dept	course  - columns/rows  attribute/tuples  field/record
+101	aaa	cs	java
+102	bbb	it	dotnet
+103	ccc	cs	java
+103	ddd	ec	dotnet
+
+Degree//No of attributes present in the relation.
+
+Cardinality//No. of tuples
+
+
+Keys
+
+What is Key?
+
+student
+
+Regid	Name	Branch	Email		Phone
+101	Arun	CS	Arun@gmail.com	12345
+102	Ruby	EC	Ruby@gmail.com	67891
+103	Arun	EC	Arun@yahoo.co.in 23451
+104	David 	CS	David@gmail.com	 Null
+
+1. I Need Email of student Arun
+
+2. I need Student Name in CS Branch.
+
+Regid,Email are called Keys.
+1. To retrieve the record uniquely
+2.To establish relationship between 2 tables and also we can identify the 
+relationship between 2 tables.
+
+1. Candiate key.(Regid, Email,phone )(if an attribute or set of attributes
+				used to uniquely identify the record)
+2. Primary Key	 (It may be one of the candidate keys without Null Value)		
+3. alternate key (The remaining keys(in candidate keys )which are not selected as primary key)
+4. composite key.(if two or more than two attributes are combined to uniquely identify the record )(stuid+name)
+
+5. foreign key.
+
+student- database
+
+stuid	name	branch
+1	aaa	cs
+2	bbb	ec
+3	aaa	cs
+1	bbb	cs
+
+Activity Database(child)
+
+activity	date		winner(foreign)
+
+any		9999		s1
+
+
+any		7777		s5
+
+
+
+student database(Parent table)
+primary key.
+
+sid	name	branch	age
+
+s1	aaa	cs      17
+s2	bbb	ec	18
+s3	ccc	cs	aa
+
+1. Whenever you are entering a value in referring table (child) that value must be present in parent table or reffered table
+2. whenever you delete or update records of parent table then all the references should be deleted/updated
+
+Data Integrity.
+
+Maintaining Correct and accurate data in database.
+
+1. Domain integrity- It represents Data type of the attribute.(Not null, unique, check)
+2. Entity integrity - uniquely identifying the record.It is maintained with the 
+			help of primary key
+3. Referential integrity.-Linking between two tables are done with the help of foreign key and it avoids data inconsistenty.
+
+what is constraint.
+
+it is a rule or condition.
+
+1. not null- will not allow null values.
+2. unique	- will not allow same/ duplicate values.
+3. primary-
+4. foreign constraint
+5. check constraint.- to restrict input values.
+
+These constraints can be divided into 2 types
+1. column- level constraint if the constraints are defined immediately
+after the column
+
+create table Student_table(
+Stid int Primary Key,
+Stname varchar(20) Not Null,
+Course varchar(20),
+Age int check(Age>17 and Age<25)
+);
+
+2. table - level constraint. If Constraints are defined after the definitions of all columns are called table -level
+
+create table Student_table(
+Stid int,
+Stname varchar(20) not null,
+course varchar(20),
+Age int
+Primary key(Stid),
+Check (Age>17 and Age<25));
+
+
+Creating Foreign Key
+---------------------
+
+Department Database
+-------------------
+Deptid(Primary)		DeptName
+101		Admin
+102		Training
+103		Marketing
+
+create table Department_table(
+Deptid int Primary Key,
+Deptname	varchar(20)
+);
+
+
+Employee Database
+Empid(Primary)	Deptid(Foreign Key)	Designation	Salary
+1		101			HR		23000
+2		102			Trainer		10000
+3		102			Trainer		15000
+
+create table Employee_table(
+Empid int primary key,
+deptid int references Department_table(deptid) on delete cascade,
+designation varchar(20),
+salary int);
+
+Join -Retrieving record from Multiple tables based on common field.
+
+1. Simple Join or inner join - will retrieve only matching records
+2. left outer 
+3. right outer
+4. full outer join
+
+
+
+student database
+
+Stuid 	Stuname	    Course
+101	AAA	    Java
+102	BBB	    Dotnet
+103	CCC          Java
+104	DDD	     Java
+
+Marktb
+Stuid	Mark
+101	87
+102	89
+107	72
+
+select Student.Stuid,Stuname,Course,Mark from Student 
+inner join marktb
+on student.Stuid=Marktb.Stuid
+
+101	AAA		Java	87
+102	BBB	    	Dotnet  89
+
+left join- will retrieve matching records from both tables as well as non
+matching records from left table
+
+
+select Student.Stuid,Stuname,Course,Mark from Student 
+left join marktb
+on student.Stuid=Marktb.Stuid
+
+101	AAA	    Java	87
+102	BBB	    Dotnet	89
+103	CCC          Java	NULL
+104	DDD	     Java	NULL
+
+right join- will retrieve matching records from both tables as well as non
+matching records from RIGHT table
+	
+101	AAA	    Java	87
+102	BBB	    Dotnet	89
+107	null	    null	72
+
+Full Outer Join		
+- will retrieve matching records between two tables and non matching records from both tables.
+
+101	AAA	    Java	87
+102	BBB	    Dotnet	89
+103	CCC          Java	NULL
+104	DDD	     Java	NULL
+107	null	    null	72
+
+create table Student(Stuid int primary key,
+Stuname varchar(20),
+Course varchar(20));
+
+create table Mark(Stuid int primary key,
+mark int);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
