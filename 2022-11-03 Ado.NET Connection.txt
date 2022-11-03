@@ -1,0 +1,124 @@
+Ado.net--( database access technology) Activex data object for .net framework.
+which is used to interact with the database.
+Namespace to be used
+---------------------
+system.data.sqlclient;
+
+Main Classes
+
+1. connection class - to establish connection
+between application and database
+2. command class
+issue sql command.
+3. sqldatareader - connected architecture.(connection should be opened ) to fetch the records from the database.
+
+Example Program:
+---------------
+ static void Main(string[] args)
+        {
+
+   SqlConnection conn;
+            SqlCommand cmd;
+            int i;
+            conn = new SqlConnection("Server=DESKTOP-9POA90V\\SQLEXPRESS;Database=EmployeeDB;Trusted_Connection=true");
+            conn.Open();
+            cmd = new SqlCommand("insert into Employee_Table values(@p1,@p2,@p3)", conn);
+            cmd.Parameters.AddWithValue("@p1", "christy");
+            cmd.Parameters.AddWithValue("@p2", "Training");
+            cmd.Parameters.AddWithValue("@p3", 10000);
+            i = cmd.ExecuteNonQuery();
+            if (i != 0)
+                Console.WriteLine("Query executed successfully");
+            else
+                Console.WriteLine("Error in query/ connection");
+
+            conn.Close();
+
+
+
+  static void Main(string[] args)
+        {
+            SqlConnection conn;
+            SqlCommand cmd;
+            int i;
+            conn = new SqlConnection("Server=DESKTOP-9POA90V\\SQLEXPRESS;Database=EmployeeDB;Trusted_Connection=true");
+            conn.Open();
+            try
+            {
+
+                cmd = new SqlCommand("insert into Employee_Table values(@p1,@p2,@p3)", conn);
+                cmd.Parameters.AddWithValue("@p1", "david");
+                cmd.Parameters.AddWithValue("@p2", "admin");
+                cmd.Parameters.AddWithValue("@p3", 10000);
+                i = cmd.ExecuteNonQuery();
+                if (i != 0)
+                    Console.WriteLine("Query executed successfully");
+                else
+                    Console.WriteLine("Error in query/ connection");
+
+            }
+            catch (SqlException se) { Console.WriteLine("Error Message " + se.Message); }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+
+   static void Main(string[] args)
+        {
+            SqlConnection conn;
+            SqlCommand cmd;
+            int i;
+            conn = new SqlConnection("Server=DESKTOP-9POA90V\\SQLEXPRESS;Database=EmployeeDB;Trusted_Connection=true");
+            conn.Open();
+            try
+            {
+
+                cmd = new SqlCommand("delete from Employee_Table where Empid=@p1", conn);
+                cmd.Parameters.AddWithValue("@p1", 2);
+               
+                i = cmd.ExecuteNonQuery();
+                if (i != 0)
+                    Console.WriteLine("Record deleted successfully");
+                else
+                    Console.WriteLine("Error in query/ connection");
+
+
+
+
+            }
+            catch (SqlException se) { Console.WriteLine("Error Message " + se.Message); }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+ static void Main(string[] args)
+        {
+            SqlConnection conn;
+            SqlCommand cmd;
+            SqlDataReader dr;
+            int i;
+            conn = new SqlConnection("Server=DESKTOP-9POA90V\\SQLEXPRESS;Database=EmployeeDB;Trusted_Connection=true");
+            conn.Open();
+            try
+            {
+
+                cmd = new SqlCommand("select * from Employee_Table ", conn);
+              
+            dr = cmd.ExecuteReader();
+              while(dr.Read())
+                {
+                    Console.WriteLine(dr[0] + "\t" + dr[1] + "\t" + dr[2] + "\t" + dr[3]);
+
+                }
+
+            }
+            catch (SqlException se) { Console.WriteLine("Error Message " + se.Message); }
+            finally
+            {
+                conn.Close();
+            }
+        }
