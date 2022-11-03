@@ -1,0 +1,35 @@
+Batch_code : ANP-C3015 (.NET) DEEPTECH 
+
+					C# TEST
+					-------
+
+
+Part-A
+1. -------------- is a runtime environment that manages and executes the code written in any .net programming language
+2. All c# applications begin execution by calling the -------------- method
+3. ----------- Component of the .Net Framework provide an extensible set of classes that can be used by any .Net complaint programming language
+4.What is the full form of JIT
+5. Boxing in .Net allows the user to convert a value type to ---------
+6. Two Methods with the same name but with different parameters is ----------
+7. Anonymous method can be defined using the ---------- keyword
+8.-------- is immutable and  --------- is mutable
+9. The -----------namespace contains the non-generic collection types.
+10.  Regex class can be found in ----------- namespace.
+
+Part-B
+
+1. What is C#. Explain the Characteristics of c#
+2. What is a delegate, types of delegates.
+3. Define Access specifiers.
+4. Explain about String in c#
+5. Differentiate between implicit and explicit casts?
+6. Define namespace
+7. Define Assembly
+8. Write a Steps to create a c# console Program
+9. Name Different Type of Errors.
+10. Difference between for and foreach loop.
+
+
+Part-C
+1.Discuss Exception Handling in detail.
+2.What are collections? Write different collections supported by c#
