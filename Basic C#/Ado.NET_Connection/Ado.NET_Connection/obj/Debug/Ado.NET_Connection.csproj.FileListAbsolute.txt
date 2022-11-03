@@ -1,0 +1,8 @@
+D:\Coding\C#\Basic C#\Ado.NET_Connection\Ado.NET_Connection\bin\Debug\Ado.NET_Connection.exe.config
+D:\Coding\C#\Basic C#\Ado.NET_Connection\Ado.NET_Connection\bin\Debug\Ado.NET_Connection.exe
+D:\Coding\C#\Basic C#\Ado.NET_Connection\Ado.NET_Connection\bin\Debug\Ado.NET_Connection.pdb
+D:\Coding\C#\Basic C#\Ado.NET_Connection\Ado.NET_Connection\obj\Debug\Ado.NET_Connection.csproj.AssemblyReference.cache
+D:\Coding\C#\Basic C#\Ado.NET_Connection\Ado.NET_Connection\obj\Debug\Ado.NET_Connection.csproj.SuggestedBindingRedirects.cache
+D:\Coding\C#\Basic C#\Ado.NET_Connection\Ado.NET_Connection\obj\Debug\Ado.NET_Connection.csproj.CoreCompileInputs.cache
+D:\Coding\C#\Basic C#\Ado.NET_Connection\Ado.NET_Connection\obj\Debug\Ado.NET_Connection.exe
+D:\Coding\C#\Basic C#\Ado.NET_Connection\Ado.NET_Connection\obj\Debug\Ado.NET_Connection.pdb

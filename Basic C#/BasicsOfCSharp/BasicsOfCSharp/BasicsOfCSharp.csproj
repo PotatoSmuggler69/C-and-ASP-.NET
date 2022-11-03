@@ -5,7 +5,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>BasicsOfCSharp.C001_Input_and_TypeCasting</StartupObject>
+    <StartupObject>BasicsOfCSharp.C004_AdoConnection</StartupObject>
 	  
   </PropertyGroup>
 
