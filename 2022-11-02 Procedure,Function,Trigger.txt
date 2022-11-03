@@ -1,0 +1,123 @@
+How to create Procedure.
+------------------------
+create procedure insprocedure(@id int,@name varchar,@dep varchar,@sal int)
+as
+begin
+insert into employee (empid,empname,dept,salary)values(@id,@name,@dep,@sal);
+end;
+
+How to execute the Procedure.
+-----------------------------
+
+execute insproc 7,'sherin','admin',20000
+
+
+create procedure insp(@n int ,@na varchar)
+as
+begin
+insert into sample values(@n,@na)
+end
+
+
+
+
+
+How to create Function
+----------------------
+
+create function addnum(@num1 int, @num2 int)returns int
+as
+begin
+declare @num3 int
+set @num3= @num1+@num2;
+return @num3
+end;
+
+create procedure myproc
+as
+begin
+declare @res int
+set @res=dbo.addnum(3,6)
+select @res
+end;
+
+execute myproc
+
+
+Trigger:
+-------
+create trigger insert_trigger on employee after insert
+as
+begin
+insert into employee_log Select empid,'inserted',GetDate() from inserted
+end;
+
+create table employee_log
+(
+empid int,
+action varchar(20),
+attime datetime)
+
+for update
+-----------
+create trigger update_trigger on employee after update
+as
+begin
+insert into employee_log Select empid,'updated',GetDate() from inserted
+end;
+
+update employee set empname='sherin', dept='admin' where empid=7
+
+
+create table wage_structure(
+type char(1),
+wage_limit int);
+
+insert into wage_structure values('a',10);
+insert into wage_structure values('b',20);
+
+create table employee_wage(empid int,
+empname varchar(20),
+emp_type char(1),
+emp_wage int);
+
+insert into employee_wage values(1,'Arun','a',5);
+
+
+create trigger wage_limit on employee_wage instead of insert
+as
+begin
+declare @type char(1)
+declare @wage int
+declare @limit int
+select @type=emp_type, @wage=emp_wage from inserted;
+select @limit=wage_limit from wage_structure where type=@type;
+if @wage>@limit
+begin
+raiserror ('Wage limit exceeded',16,1)
+return
+end
+else
+begin
+insert into employee_wage select * from inserted;
+end
+end
+
+insert into employee_wage values(1,'kkkk','a',15)
+
+
+How to disable trigger
+disable trigger update_trigger on employee
+How to enable trigger
+enable trigger update_trigger on employee
+
+begin transaction t1
+insert into temp values(1)
+insert into temp values(2)
+insert into temp values(3)
+insert into temp values(4)
+save transaction ins1
+delete from temp where id=1
+save transaction del1
+select * from temp
+rollback transaction ins1
