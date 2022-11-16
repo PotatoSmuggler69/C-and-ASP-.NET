@@ -1,0 +1,63 @@
+ADO.net->ActiveX Data Object for .net Framework-
+It is the part of the .net framework - to interact with the database.
+They are Majorily 4 objects
+1. Connection object
+2. Command Object
+3. DataReader object
+4. Data Adapter objects
+System.Data.SqlClient.(namespace)
+Connection Object is used to establish connection between application and database
+Command - To use Sql command in database
+DataReader object - to select records from the database(Connected Architecture)
+Connection should exist until all the records are fetched.
+
+DataAdapter object is also used to select records from the
+database - connection can be closed once the records are fetched.
+
+
+application    dataset    (can't communicate with the database) it uses data adapter ( it is an interface between the dataset and database)		database
+
+(uses dataset to fetch records)
+
+application -> dataset -> data adapter -> database( dissconnected)
+
+application - >data reader  - database ( connected )
+
+Html - markup lanaguage , markup it refers tags. which is used to create a webpage.
+Tags are used to define page layout and elements within the page.
+
+Tim bernarslee in 1991
+
+
+This is the basic structure of html file
+<html>-
+<head>
+</head>
+<body>
+</body>
+</html>
+
+<p>content</p>- element
+
+Tags without content is called void elements or empty elements.
+<br>
+</hr>
+
+what are block level and inline elements in html
+block level - always starts on a new line. it takes full wigth of the page
+inline element - it is placed side by side.
+
+types of list
+list items in unordered list will be shown with bullets(circle,square,disc)
+list items in ordered list will be shown with numbers or alphabets.
+
+Form tag:
+To create a form for user input.
+1. action- where to send your form data when a form is submitted
+2. method - how to send form data to the server
+1. get - all the form datas will be added to the url 
+2. post- form datas will be sending separately as a message.
+
+
+
+

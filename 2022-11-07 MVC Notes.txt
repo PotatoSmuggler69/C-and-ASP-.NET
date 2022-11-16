@@ -1,0 +1,50 @@
+MVC:
+-----
+architecture pattern.
+It divides the project into 3 layers.
+1. Model  - It deals with business logic.
+2. view - it is an user interface.
+3. controller.- connects model and view.(It handles user interaction logic)
+The logic that handles the request must be written inside this controller class.
+
+The Methods that we are writing inside the controller are called action methods.
+
+
+When we create any controller then It will create a new class inside the controller folder.
+
+Any class which inherits the controller class must contain controler keyword at the end.
+
+model view  controller
+
+model contains data
+
+view contains user interface (output design)
+
+(we will never talk with the view also view will not do anything by its own.
+if it needs data it has to ask the controller  and controller will forward that request to the model and get data , will bind the data to the view)
+controller is like intermediator or it connects model and view.)
+
+This is controller class
+
+  public class TestController : Controller
+    {
+       public ActionResult Greet()
+        {
+            return View();
+        }
+    }
+
+
+This is view.
+<html>
+    <body>
+    <div> Welcome to My First MVC Program</div>
+    </body>
+</html>
+
+
+
+
+
+
+
