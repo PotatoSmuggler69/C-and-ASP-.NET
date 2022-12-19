@@ -1,0 +1,116 @@
+what is .net framework
+tool introduced by microsoft which we can use for software development. it contains libraries and runtime environment.
+
+difference between .net framework and .net core.
+
+windows framework		cross platform framework
+open source(free only for students)opensource (free for all)
+
+1. CLR- Common Language Runtime. It is the Execution Engine for .net framework
+When we compile the code it is not directly converted into machine code/binary code/native code. first it is converted into MSIL(Microsoft intermediate language code)by language compile.Now CLR will use JIT Compiler to convert IL code into native code and execute the program.
+
+1. Memory Allocation.- is done by Garbage Collector.
+
+
+Garbage collection.process of allocating and releasing memory 
+
+class employee
+{
+
+
+}
+void main()
+{
+employee obj1=new employee();
+obj1.show();
+employee obj2=new employee();
+obj2.show();
+employee obj3=new employee();
+obj3.show();
+obj2=null;
+employee obj4=new employee();
+obj4.show();
+
+}
+
+Gen0	Gen1	Gen2
+
+obj4	obj3	obj1
+
+2. CTS - common type system. It helps to intercommunicate among datatype in different language.
+
+3. CLS- common language specification. It defines rules that all the .net supported languages should follow.It is part of CTS.
+
+4. BCL - Libraries of .net.
+
+assembly:When we compile the code and build the solution c# will convert the code into assembly.
+unit of deployement.exe or dll will be placed inside the bin folder.
+
+Private - can be used by single application(exe)(will contain main())
+public- for multiple application(dll)( for creating class libraries)
+
+.Net Core
+Components of .Net
+Assembly
+GarbageCollection
+Role of GarbageCollector
+what is .net Framework
+OOPs concepts
+advantages and limitation of oops
+1. security through encapsulation
+2. code reusability through inheritance
+3. flexibility through polymorphism
+4. modularity through class.
+limitation:
+clear understand of object is must.
+
+Constructor & Destructor
+Finalize()- will be called by the garbage collector to destroy the object.
+There is no keyword for finalize(). when we add destructor in code  during runtime that method will be changed into finalize()
+
+Dispose()
+this- to refer current instance of the class
+
+string and stringbuilder 
+immutable - 
+when we assign some value in a string and try to change the value it will create new memory and store the updated value.
+mutable.-instead of creating new memeory it will the change the value in the same memory location.
+
+
+abstract and interface- both can only be used for inheritance.
+abstract class can contain fields, concrete method, abstract method
+created with abstract keyword
+interface can't contain fields, concrete methods . only abstract method
+using interface keyword
+
+virtual and override-
+
+static class
+
+sealed keyword.
+
+constfield and readonly
+
+ref and out parameter
+
+ienumerable and ienumerator
+
+is and as
+
+partial method
+
+extension method.
+
+access modifiers.
+
+
+
+
+
+
+
+
+
+
+
+

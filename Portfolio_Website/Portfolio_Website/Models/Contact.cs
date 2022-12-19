@@ -19,6 +19,7 @@ namespace Portfolio_Website.Models
 
         public String? Description { get; set; }
 
+        public DateTime? DOA { get; set; }
 
     }
 }
