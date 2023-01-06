@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LibraryManagement.Web</name>
+    </assembly>
+    <members>
+        <member name="M:LibraryManagement.Web.Controllers.AuthController.Register(LibraryManagement.Web.DTOs.Auth.RegisterDTO)">
+            <summary>
+            Method For Register
+            </summary>
+        </member>
+        <member name="M:LibraryManagement.Web.Controllers.AuthController.Login(LibraryManagement.Web.DTOs.Auth.LoginDTO)">
+            <summary>
+            Method To Login into System.This will add the JWT token at successfull attempt to log In
+            </summary>
+        </member>
+        <member name="T:LibraryManagement.Web.Controllers.BookController">
+            <summary>
+            Book Controller
+            </summary>
+        </member>
+        <member name="M:LibraryManagement.Web.Controllers.BookController.Getall">
+            <summary>
+            Displays all the books present in the Library
+            </summary>
+        </member>
+        <member name="M:LibraryManagement.Web.Controllers.BookController.Get(System.Int32)">
+            <summary>
+            Fetches a particular book by providing Book Id
+            </summary>
+        </member>
+        <member name="M:LibraryManagement.Web.Controllers.BookController.Post(LibraryManagement.Web.DTOs.Books.CreateBookDTO)">
+            <summary>
+            This is for adding a new Book record.Only Librarian can Access
+            </summary>
+        </member>
+        <member name="M:LibraryManagement.Web.Controllers.BookController.Put(LibraryManagement.Web.DTOs.Books.UpdateBookDTO)">
+            <summary>
+            Editing a new Book record. Only Librarian can Access
+            </summary>
+        </member>
+        <member name="M:LibraryManagement.Web.Controllers.BookController.Delete(System.Int32)">
+            <summary>
+            Delete a book record. Only Librarian Access
+            </summary>
+        </member>
+    </members>
+</doc>

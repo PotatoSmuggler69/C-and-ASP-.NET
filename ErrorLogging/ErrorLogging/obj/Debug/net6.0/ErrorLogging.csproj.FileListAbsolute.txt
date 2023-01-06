@@ -1,0 +1,15 @@
+D:\Coding\C#\ErrorLogging\ErrorLogging\obj\Debug\net6.0\ErrorLogging.csproj.AssemblyReference.cache
+D:\Coding\C#\ErrorLogging\ErrorLogging\obj\Debug\net6.0\ErrorLogging.GeneratedMSBuildEditorConfig.editorconfig
+D:\Coding\C#\ErrorLogging\ErrorLogging\obj\Debug\net6.0\ErrorLogging.AssemblyInfoInputs.cache
+D:\Coding\C#\ErrorLogging\ErrorLogging\obj\Debug\net6.0\ErrorLogging.AssemblyInfo.cs
+D:\Coding\C#\ErrorLogging\ErrorLogging\obj\Debug\net6.0\ErrorLogging.csproj.CoreCompileInputs.cache
+D:\Coding\C#\ErrorLogging\ErrorLogging\bin\Debug\net6.0\ErrorLogging.exe
+D:\Coding\C#\ErrorLogging\ErrorLogging\bin\Debug\net6.0\ErrorLogging.deps.json
+D:\Coding\C#\ErrorLogging\ErrorLogging\bin\Debug\net6.0\ErrorLogging.runtimeconfig.json
+D:\Coding\C#\ErrorLogging\ErrorLogging\bin\Debug\net6.0\ErrorLogging.dll
+D:\Coding\C#\ErrorLogging\ErrorLogging\bin\Debug\net6.0\ErrorLogging.pdb
+D:\Coding\C#\ErrorLogging\ErrorLogging\obj\Debug\net6.0\ErrorLogging.dll
+D:\Coding\C#\ErrorLogging\ErrorLogging\obj\Debug\net6.0\refint\ErrorLogging.dll
+D:\Coding\C#\ErrorLogging\ErrorLogging\obj\Debug\net6.0\ErrorLogging.pdb
+D:\Coding\C#\ErrorLogging\ErrorLogging\obj\Debug\net6.0\ErrorLogging.genruntimeconfig.cache
+D:\Coding\C#\ErrorLogging\ErrorLogging\obj\Debug\net6.0\ref\ErrorLogging.dll

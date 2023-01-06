@@ -1,0 +1,18 @@
+=============Error Logging ===========
+===========Start============= 05-01-2023 16:21:57
+Error Message: Company not found! Company = Aka not present in Database
+===========End============= 05-01-2023 16:21:57
+=============Error Logging ===========
+===========Start============= 05-01-2023 16:23:21
+Error Message: Company not registered.!
+Please register before login Company = Aka not present in Database
+===========End============= 05-01-2023 16:23:21
+=============Error Logging ===========
+===========Start============= 05-01-2023 16:23:41
+Error Message: Company not registered.!
+Please register before login Company = abh not present in Database
+===========End============= 05-01-2023 16:23:41
+=============Error Logging ===========
+===========Start============= 05-01-2023 16:24:43
+Error Message: Company not registered ! ! ! Company = string not present in Database
+===========End============= 05-01-2023 16:24:43

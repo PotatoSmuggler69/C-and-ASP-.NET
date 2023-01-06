@@ -1,0 +1,66 @@
+public class Student
+    {
+        [Key]
+        public int StudentId { get; set; }
+
+        [Required(ErrorMessage = "Student Name Can't be Blank")]
+        [MinLength(5, ErrorMessage = "Name Should contain atleast 5 Characters")]
+        public string? StudentName { get; set; }
+
+        [Required]
+        [RegularExpression(@"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}", ErrorMessage = "Incorrect Email Format")]
+        public string? EmailId { get; set; }
+
+        [Required]
+        [Range(17, 25, ErrorMessage = "Age must be between 17-25 in years.")]
+        [Display(Name = "Student Age")]
+        public int age { get; set; }
+
+        [Required]
+        public int Mark1 { get; set; }
+
+        [Required]
+        public int Mark2 { get; set; }
+
+       [Display(Name = "Total Mark")]
+        public int Total { get; set; }
+         [Display(Name = "Average Mark")]
+        public int Average { get; set; }
+        public char Grade { get; set; }
+
+}
+
+ [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("StudentId,StudentName,EmailId,age,Mark1,Mark2,Total,Average,Grade")] Student student)
+        {
+            if (ModelState.IsValid)
+            {
+
+                student.Total = student.Mark1 + student.Mark2;
+                student.Average = (student.Total) / 2;
+
+                if (student.Average >= 75)
+                    student.Grade = 'A';
+                else
+                    if (student.Average > 65)
+                    student.Grade = 'B';
+                else
+                     if (student.Average > 55)
+                    student.Grade = 'C';
+                else
+                        if (student.Average > 45)
+                    student.Grade = 'D';
+                else
+                    student.Grade = 'F';
+                _context.Add(student);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(student);
+        }
+
+
+
+
+    }

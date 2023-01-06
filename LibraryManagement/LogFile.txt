@@ -1,0 +1,91 @@
+=============Error Logging ===========
+===========Start============= 05-01-2023 23:47:34
+Error Message: Member not found! Email = string does not exist
+===========End============= 05-01-2023 23:47:34
+=============Error Logging ===========
+===========Start============= 05-01-2023 23:47:50
+Error Message: Wrong Password Company = Abhishek@gmail.com present in Database. But Password did not match
+===========End============= 05-01-2023 23:47:50
+=============Error Logging ===========
+===========Start============= 06-01-2023 13:15:25
+Error Message: Wrong Password Company = admin@admin.com present in Database. But Password did not match
+===========End============= 06-01-2023 13:15:25
+=============Error Logging ===========
+===========Start============= 06-01-2023 13:23:52
+Error Message: Member not found! Email = admin2@gmail.com does not exist
+===========End============= 06-01-2023 13:23:52
+=============Error Logging ===========
+===========Start============= 06-01-2023 13:24:48
+Error Message: Sequence contains no elements
+Stack Trace:    at System.Linq.ThrowHelper.ThrowNoElementsException()
+   at lambda_method62(Closure , QueryContext )
+   at System.Linq.Queryable.First[TSource](IQueryable`1 source, Expression`1 predicate)
+   at LibraryManagement.Web.Services.BookServices.UpdateBook(UpdateBookDTO updateBook) in D:\Coding\C#\LibraryManagement\LibraryManagement.Web\Services\BookServices.cs:line 70
+===========End============= 06-01-2023 13:24:48
+=============Error Logging ===========
+===========Start============= 06-01-2023 13:31:17
+Error Message: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Book -> UpdateBookDTO
+LibraryManagement.Web.Models.Book -> LibraryManagement.Web.DTOs.Books.UpdateBookDTO
+Stack Trace:    at lambda_method133(Closure , Object , UpdateBookDTO , ResolutionContext )
+   at LibraryManagement.Web.Services.BookServices.UpdateBook(UpdateBookDTO updateBook) in D:\Coding\C#\LibraryManagement\LibraryManagement.Web\Services\BookServices.cs:line 77
+===========End============= 06-01-2023 13:31:17
+=============Error Logging ===========
+===========Start============= 06-01-2023 13:38:48
+Error Message: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Book -> UpdateBookDTO
+LibraryManagement.Web.Models.Book -> LibraryManagement.Web.DTOs.Books.UpdateBookDTO
+Stack Trace:    at lambda_method133(Closure , Object , UpdateBookDTO , ResolutionContext )
+   at LibraryManagement.Web.Services.BookServices.UpdateBook(UpdateBookDTO updateBook)
+===========End============= 06-01-2023 13:38:48
+=============Error Logging ===========
+===========Start============= 06-01-2023 13:51:44
+Error Message: Member not found! Email = admin@example.com does not exist
+===========End============= 06-01-2023 13:51:44
+=============Error Logging ===========
+===========Start============= 06-01-2023 14:33:35
+Error Message: Member not found! Email = abc@example.com does not exist
+===========End============= 06-01-2023 14:33:35
+=============Error Logging ===========
+===========Start============= 06-01-2023 14:57:59
+Error Message: Value cannot be null. (Parameter 'entity')
+Stack Trace:    at Microsoft.EntityFrameworkCore.Utilities.Check.NotNull[T](T value, String parameterName)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Remove(TEntity entity)
+   at LibraryManagement.Web.Services.BookServices.RemoveBook(Int32 BookId) in D:\Coding\C#\LibraryManagement\LibraryManagement.Web\Services\BookServices.cs:line 60
+===========End============= 06-01-2023 14:57:59
+=============Error Logging ===========
+===========Start============= 06-01-2023 15:02:16
+Error Message: Wrong Password Company = admin2@example.com present in Database. But Password did not match
+===========End============= 06-01-2023 15:02:16
+=============Error Logging ===========
+===========Start============= 06-01-2023 15:02:50
+Error Message: Sequence contains no elements
+Stack Trace:    at System.Linq.ThrowHelper.ThrowNoElementsException()
+   at lambda_method78(Closure , QueryContext )
+   at System.Linq.Queryable.First[TSource](IQueryable`1 source, Expression`1 predicate)
+   at LibraryManagement.Web.Services.BookServices.UpdateBook(UpdateBookDTO updateBook) in D:\Coding\C#\LibraryManagement\LibraryManagement.Web\Services\BookServices.cs:line 86
+===========End============= 06-01-2023 15:02:50
+=============Error Logging ===========
+===========Start============= 06-01-2023 15:05:24
+Error Message: Member not found! Email = admin2@gmail.com does not exist
+===========End============= 06-01-2023 15:05:24
+=============Error Logging ===========
+===========Start============= 06-01-2023 15:06:04
+Error Message: Sequence contains no elements
+Stack Trace:    at System.Linq.ThrowHelper.ThrowNoElementsException()
+   at lambda_method114(Closure , QueryContext )
+   at System.Linq.Queryable.First[TSource](IQueryable`1 source, Expression`1 predicate)
+   at LibraryManagement.Web.Services.BookServices.UpdateBook(UpdateBookDTO updateBook) in D:\Coding\C#\LibraryManagement\LibraryManagement.Web\Services\BookServices.cs:line 80
+===========End============= 06-01-2023 15:06:04
+=============Error Logging ===========
+===========Start============= 06-01-2023 15:08:13
+Error Message: Sequence contains no elements
+Stack Trace:    at System.Linq.ThrowHelper.ThrowNoElementsException()
+   at lambda_method54(Closure , QueryContext )
+   at System.Linq.Queryable.First[TSource](IQueryable`1 source, Expression`1 predicate)
+   at LibraryManagement.Web.Services.BookServices.UpdateBook(UpdateBookDTO updateBook) in D:\Coding\C#\LibraryManagement\LibraryManagement.Web\Services\BookServices.cs:line 80
+===========End============= 06-01-2023 15:08:14

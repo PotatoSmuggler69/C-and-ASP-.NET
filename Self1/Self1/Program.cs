@@ -1,4 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Self1.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<Self1Context>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Self1Context") ?? throw new InvalidOperationException("Connection string 'Self1Context' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ApiProject.web</name>
+    </assembly>
+    <members>
+        <member name="M:ApiProject.web.Controllers.AuthController.Register(ApiProject.web.DTOs.CompanyRegisterDTO)">
+            <summary>
+            Method For Registering user
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:ApiProject.web.Controllers.AuthController.Login(ApiProject.web.DTOs.CompanyLoginDTO)" -->
+        <member name="M:ApiProject.web.Controllers.ClientInfoController.Getall">
+            <summary>
+            Method for displaying all the clients from the DB
+            </summary>
+        </member>
+        <member name="M:ApiProject.web.Controllers.ClientInfoController.Get(System.String)">
+            <summary>
+            Method for getting the details of a particular client by Username
+            </summary>
+        </member>
+        <member name="M:ApiProject.web.Controllers.ClientInfoController.Post(ApiProject.web.DTOs.AddClientDTO)">
+            <summary>
+            Method to add new client to Database
+            </summary>
+        </member>
+        <member name="M:ApiProject.web.Controllers.ClientInfoController.Put(ApiProject.web.DTOs.UpdateClientDTO)">
+            <summary>
+            Method to edit already existing clients
+            </summary>
+        </member>
+        <member name="M:ApiProject.web.Controllers.ClientInfoController.Delete(System.String)">
+            <summary>
+            Method for deleting a client record from the database.
+            </summary>
+        </member>
+        <member name="T:ApiProject.web.Migrations.init1">
+            <inheritdoc />
+        </member>
+        <member name="M:ApiProject.web.Migrations.init1.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ApiProject.web.Migrations.init1.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ApiProject.web.Migrations.init1.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

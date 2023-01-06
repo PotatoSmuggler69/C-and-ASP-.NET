@@ -1,0 +1,26 @@
+Step 1
+Install the packages 
+1. Microsoft.EntityFrameworkcore.SqlServer
+2. Microsoft.EntityFrameworkcore.Design
+
+Step 2:
+Create a Model class 
+Rightclick on Model Folder-> click on Class
+include the following namespace
+using System.ComponentModel.DataAnnotations
+
+step 3;
+Add Controller - MVCControllerWithViewsUsingEF
+Choose Model Class
+To Get DBContext - click on + symbol
+
+step4:
+Open Consolewindow
+type the following commands
+Add-Migration InitialMigration
+update-Database
+
+
+
+
+
